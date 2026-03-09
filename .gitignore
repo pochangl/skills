@@ -4,3 +4,7 @@ downloads
 ide
 plugins
 config.json
+history.jsonl
+policy-limits.json
+projects/
+shell-snapshots/
