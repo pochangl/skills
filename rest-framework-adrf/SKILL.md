@@ -146,6 +146,7 @@ class MessageSerializer(ModelSerializer):
 ## Router + URL Style
 
 - Use `adrf.routers.DefaultRouter()` in app URLs.
+- Register resources with **singular** nouns (e.g. `'profile'`, not `'profiles'`) unless explicitly told to use plural.
 - Register resources with explicit `basename`.
 - Keep utility endpoints (`token`, `join`, etc.) as explicit `path()` entries beside router URLs.
 
