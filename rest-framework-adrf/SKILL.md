@@ -88,8 +88,9 @@ class PublicView(APIView):
 - Define `queryset` and `serializer_class` at class level.
 - Restrict data by `request.user` in `get_queryset()`.
 - For read-only relationships, use `ReadOnlyModelViewSet`.
+- **Override `perform_acreate` / `perform_aupdate` / `perform_adestroy`** — NOT `perform_create` / `perform_update` / `perform_destroy`. ADRF's async mixins dispatch to the `a`-prefixed hooks; the unprefixed versions are never called.
 
-Example pattern (mirrors `messenger/views.py`):
+Example pattern:
 
 ```python
 from adrf.viewsets import ModelViewSet
@@ -101,6 +102,9 @@ class IdentityViewSet(ModelViewSet):
 
     def get_queryset(self):
         return self.queryset.filter(user=self.request.user)
+
+    async def perform_acreate(self, serializer):
+        await serializer.asave(user=self.request.user)
 ```
 
 ## Function Endpoint Style
