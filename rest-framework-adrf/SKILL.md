@@ -78,6 +78,11 @@ class PublicView(APIView):
 - Use async wrappers in `utils/adrf/*` rather than raw DRF classes when dealing with async ADRF views.
 - In tests, pass token as `Authorization: Token <token>`.
 
+## When to Use ViewSets vs Plain Views
+
+- **Use a ViewSet** when the endpoint performs CRUD on a single table. This covers most standard resource endpoints.
+- **Use a plain APIView or @api_view** when the endpoint involves custom logic across multiple tables or doesn't map to standard CRUD.
+
 ## ViewSet Style
 
 - Define `queryset` and `serializer_class` at class level.
