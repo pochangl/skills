@@ -1,7 +1,7 @@
 ---
 name: commit
 description: Use this skill when the user asks to commit changes. Triggers on "commit", "commit changes", "/commit". Enforces the project's commit granularity rules — one concept per commit unless changes share the same file.
-user_invocable: true
+user-invocable: true
 ---
 
 # Commit Skill

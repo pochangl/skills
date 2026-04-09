@@ -1,7 +1,7 @@
 ---
 name: describe
 description: Listen to the user's description and write it down when they are done. Only triggered via the /describe command.
-user_invocable: true
+user-invocable: true
 ---
 
 # Describe Skill
