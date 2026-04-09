@@ -88,7 +88,8 @@ class PublicView(APIView):
 - Define `queryset` and `serializer_class` at class level.
 - Restrict data by `request.user` in `get_queryset()`.
 - For read-only relationships, use `ReadOnlyModelViewSet`.
-- **Override `perform_acreate` / `perform_aupdate` / `perform_adestroy`** — NOT `perform_create` / `perform_update` / `perform_destroy`. ADRF's async mixins dispatch to the `a`-prefixed hooks; the unprefixed versions are never called.
+- **Do NOT explicitly define `perform_acreate` / `perform_aupdate`** when using an ADRF serializer for standard CRUD — the default implementation already calls `serializer.asave()`, which is sufficient. Only override these hooks when you need additional operations beyond what the serializer handles (e.g., injecting `request.user`, sending notifications, triggering async side effects).
+- When you do override, use the `a`-prefixed hooks (`perform_acreate` / `perform_aupdate` / `perform_adestroy`) — NOT `perform_create` / `perform_update` / `perform_destroy`. ADRF's async mixins dispatch to the `a`-prefixed hooks; the unprefixed versions are never called.
 
 Example pattern:
 
