@@ -165,6 +165,7 @@ class TestMessageAuth(TestCase): ...   # error / unauthenticated cases
 
 ## What NOT to do
 
+- Don't use sync tests for async targets — if the code under test is async (consumers, async views, async services), the test method must be `async def` and use `await`. Never wrap async code in `sync_to_async` or `asyncio.run` just to use a sync test.
 - Don't use sync DRF views/clients to test async endpoints — auth will fail.
 - Don't share state between tests via class attributes — always use `setUp`.
 - Don't assert on `response.text` when `.json()` is available.
