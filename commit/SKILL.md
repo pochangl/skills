@@ -22,7 +22,7 @@ When staged changes span multiple unrelated concepts across different files, spl
 4. For each commit:
    - Stage only the relevant files (`git add <file>...` — never `git add -A` or `git add .`)
    - Write a concise commit message in the repo's style (typically `type: description`)
-   - End the message with: `Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>`
+   - Only if Claude was involved in generating the code changes (not just committing user-written code), end the message with: `Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>`
    - Use a HEREDOC to pass the commit message
 5. Run `git status` after all commits to verify clean state.
 
