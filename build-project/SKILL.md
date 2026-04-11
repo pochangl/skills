@@ -1,6 +1,6 @@
 ---
-name: buildproject
-description: Use this skill when the user asks to build the project, implement the checklist, or continue building. Triggers on "build", "build project", "implement checklist", or "/buildproject".
+name: build-project
+description: Use this skill when the user asks to build the project, implement the checklist, or continue building. Triggers on "build", "build project", "implement checklist", or "/build-project".
 user-invocable: true
 ---
 

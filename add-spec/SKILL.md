@@ -1,5 +1,5 @@
 ---
-name: addspec
+name: add-spec
 description: Add a new requirement to the appropriate spec doc and update the build checklist. Triggered via /add-spec command.
 user-invocable: true
 ---
