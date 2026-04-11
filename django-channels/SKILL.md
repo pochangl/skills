@@ -213,6 +213,10 @@ daphne -b 0.0.0.0 -p 8000 server.asgi:application
 
 ---
 
+## Common Pitfalls
+
+- **`AsyncWebsocketConsumer` not `AsyncWebSocketConsumer`**: The channels library uses a lowercase `s` in `Websocket`. Using `AsyncWebSocketConsumer` (capital `S`) will raise `ImportError: cannot import name 'AsyncWebSocketConsumer'`. Always use `from channels.generic.websocket import AsyncWebsocketConsumer`.
+
 ## Conventions
 
 - Topic naming: `message/{user.id}` for user streams, `chatroom/{room_id}` for room events
